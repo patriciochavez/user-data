@@ -1,8 +1,9 @@
 #!/bin/bash
-sudo apt-get install -y git nginx
-sudo git clone https://github.com/demosdatacenter/demo-cloud-init.git
-sudo mv demo-cloud-init/index.html /usr/share/nginx/html/index.html
-sudo mv demo-cloud-init/css /usr/share/nginx/html/css
-sudo mv demo-cloud-init/img /usr/share/nginx/html/img
-sudo rm -Rf demo-cloud-init
+sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+sudo echo deb https://apt.dockerproject.org/repo ubuntu-trusty main >> /etc/apt/sources.list.d/docker.list
+sudo apt-get update
+sudo apt-get install -y docker-engine
+sudo service docker start
+sudo docker pull kitematic/hello-world-nginx
+sudo docker run -p 80:80 -itd kitematic/hello-world-nginx
 exit 0
