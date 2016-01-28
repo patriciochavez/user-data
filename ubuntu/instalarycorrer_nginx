@@ -1,0 +1,8 @@
+#!/bin/bash
+sudo apt-get install -y git nginx
+sudo git clone https://github.com/demosdatacenter/demo-cloud-init.git
+sudo mv demo-cloud-init/index.html /usr/share/nginx/html/index.html
+sudo mv demo-cloud-init/css /usr/share/nginx/html/css
+sudo mv demo-cloud-init/img /usr/share/nginx/html/img
+sudo rm -Rf demo-cloud-init
+exit 0
